@@ -19,6 +19,9 @@ public class HomePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
+        Intent intent = getIntent();
+        String jsessionid = intent.getExtras().getString("cookie");
+
         bottomNavigationView = findViewById(R.id.bottom_navigator);
         bottomNavigationView.setSelectedItemId(R.id.home_nav);
 
@@ -32,17 +35,26 @@ public class HomePage extends AppCompatActivity {
                         return true;
 
                     case R.id.balance_nav:
-                        startActivity(new Intent(getApplicationContext(),BalancePage.class));
+                        Intent i = new Intent(getApplicationContext(), BalancePage.class);
+                        i.putExtra("cookie", jsessionid);
+                        startActivity(i);
+                        finish();
                         overridePendingTransition(0,0);
                         return true;
 
                     case R.id.application_form_nav:
-                        startActivity(new Intent(getApplicationContext(),ApplicationPage.class));
+                        Intent i2 = new Intent(getApplicationContext(), ApplicationPage.class);
+                        i2.putExtra("cookie", jsessionid);
+                        startActivity(i2);
+                        finish();
                         overridePendingTransition(0,0);
                         return true;
 
                     case R.id.profile_nav:
-                        startActivity(new Intent(getApplicationContext(),ProfilePage.class));
+                        Intent i3 = new Intent(getApplicationContext(), ProfilePage.class);
+                        i3.putExtra("cookie", jsessionid);
+                        startActivity(i3);
+                        finish();
                         overridePendingTransition(0,0);
                         return true;
                 }

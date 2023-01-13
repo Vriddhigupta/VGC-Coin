@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -17,9 +19,14 @@ public class ProfilePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_page);
-
+        Button reset = findViewById(R.id.reset_pass);
         bottomNavigationView = findViewById(R.id.bottom_navigator);
         bottomNavigationView.setSelectedItemId(R.id.profile_nav);
+
+        Intent intent = getIntent();
+
+        String jsessionid = intent.getExtras().getString("cookie");
+        System.out.println(jsessionid);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -47,6 +54,16 @@ public class ProfilePage extends AppCompatActivity {
                 }
 
                 return false;
+            }
+        });
+
+        reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i2 = new Intent(getApplicationContext(), Login_Firsttime.class);
+                i2.putExtra("cookie", jsessionid);
+                startActivity(i2);
+                finish();
             }
         });
     }

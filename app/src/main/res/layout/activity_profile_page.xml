@@ -1,78 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
     android:orientation="vertical"
-    tools:context=".Register">
+    tools:context=".ProfilePage">
 
-    <Button
-        android:layout_width="34dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="180dp"
-        android:layout_marginLeft="20dp"
-        android:background="@drawable/back_arrow" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
+    <RelativeLayout
+        android:id="@+id/picture"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/org_grad">
 
         <TextView
+            android:id="@+id/name_initial"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/playfair_display_bold"
-            android:text="Register"
-            android:textAlignment="center"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="V"
             android:textColor="@color/white"
-            android:textSize="35sp"/>
+            android:textSize="120sp" />
 
-        <EditText
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:background="@drawable/orange_border_box"
-            android:hint="Enter your ID no."
-            android:padding="18sp"
-            android:textColor="@color/dark_grey"
-            android:textColorHint="@color/white" />
+    </RelativeLayout>
 
-        <Button
-            android:layout_width="158dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/grey_grad_box"
-            android:layout_marginTop="27dp"
-            android:text="Submit"
-            android:textColor="@color/white"
-            android:textSize="17sp"
-            android:textAllCaps="false"/>
+    <TextView
+        android:id="@+id/student_name"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/picture"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/pink_border_box"
+        android:drawableStart="@drawable/person_icon"
+        android:drawablePadding="2dip"
+        android:gravity="center"
+        android:paddingLeft="30dip"
+        android:paddingRight="26dip"
+        android:singleLine="true"
+        android:text="Vriddhi Gupta"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="200dp">
+    <TextView
+        android:id="@+id/stud_id"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/student_name"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/pink_border_box"
+        android:drawableStart="@drawable/ic_baseline_assignment_ind_24"
+        android:drawablePadding="2dip"
+        android:gravity="center"
+        android:paddingLeft="30dip"
+        android:paddingRight="26dip"
+        android:singleLine="true"
+        android:text="191081078"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Already have an account? "
-                android:textColor="@color/dark_grey"
-                android:textSize="17sp"/>
+    <TextView
+        android:id="@+id/student_email"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/stud_id"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/pink_border_box"
+        android:drawableStart="@drawable/ic_baseline_email_24"
+        android:drawablePadding="2dip"
+        android:gravity="center"
+        android:paddingLeft="30dip"
+        android:paddingRight="26dip"
+        android:singleLine="true"
+        android:text="vagupta_b19@it.vjti.ac.in"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Login"
-                android:textColor="@color/white"
-                android:textSize="17sp"/>
+    <TextView
+        android:id="@+id/student_number"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/student_email"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/pink_border_box"
+        android:drawableStart="@drawable/ic_baseline_local_phone_24"
+        android:drawablePadding="2dip"
+        android:gravity="center"
+        android:paddingLeft="30dip"
+        android:paddingRight="26dip"
+        android:singleLine="true"
+        android:text="9082212712"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
 
-        </LinearLayout>
-    </LinearLayout>
+    <Button
+        android:id="@+id/reset_pass"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:paddingLeft="30dip"
+        android:paddingRight="26dip"
+        android:layout_height="60dp"
+        android:layout_below="@id/student_number"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/org_pink_grad_box"
+        android:padding="10dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:textAllCaps="false"
+        android:text="Reset Password"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
 
-</LinearLayout>
+        android:background="@drawable/grey_box"
+        android:elevation="2dp"
+        android:layout_margin="20dp"
+        app:itemIconSize="29dp"
+        app:labelVisibilityMode="unlabeled"
+        app:itemTextColor="@drawable/bottom_nav_selector"
+        app:itemIconTint="@drawable/bottom_nav_selector"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_nav_menu"/>
+
+</RelativeLayout>

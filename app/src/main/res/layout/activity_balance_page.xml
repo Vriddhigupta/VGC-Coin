@@ -7,17 +7,97 @@
     android:background="@color/black"
     tools:context=".BalancePage">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Balance"
+    <RelativeLayout
+        android:id="@+id/balance_card"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/org_pink_grad_box"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/vgc_coin" />
+
+        <TextView
+            android:id="@+id/balance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="30dp"
+            android:text="20 COINS"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/balance"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:text="VJTI Governance Coin"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/pay_by_id"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/balance_card"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/pink_border_box"
+        android:drawableStart="@drawable/person_icon"
+        android:drawablePadding="2dip"
+        android:gravity="center"
+        android:paddingLeft="30dip"
+        android:paddingRight="26dip"
+        android:singleLine="true"
+        android:text="Pay using ID"
         android:textColor="@color/white"
-        android:textSize="50sp"/>
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/pay_by_qr"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/pay_by_id"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/pink_border_box"
+        android:drawableStart="@drawable/ic_baseline_qr_code_scanner_24"
+        android:drawablePadding="2dip"
+        android:gravity="center"
+        android:paddingLeft="30dip"
+        android:paddingRight="26dip"
+        android:singleLine="true"
+        android:text="Pay using QR Code"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigator"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:background="@drawable/grey_box"
         android:elevation="2dp"
         android:layout_margin="20dp"
