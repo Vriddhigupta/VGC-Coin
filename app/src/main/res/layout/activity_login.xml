@@ -39,14 +39,12 @@
             android:background="@drawable/grey_box"
             android:hint="Enter your ID no."
             android:padding="18sp"
-<<<<<<< HEAD
+
             android:textColor="@color/white"
             android:textColorHint="@color/white"
             android:elevation="5dp"/>
-=======
-            android:textColor="@color/dark_grey"
-            android:textColorHint="@color/white" />
->>>>>>> bb4ee1d8d645d489a6fd1337a24d72409467d1a3
+
+
 
         <EditText
             android:id="@+id/studentPass"
@@ -70,16 +68,12 @@
 
         <Button
             android:id="@+id/login"
-<<<<<<< HEAD
             android:layout_width="247dp"
             android:layout_height="59dp"
             android:layout_marginTop="40dp"
-=======
-            android:layout_width="158dp"
-            android:layout_height="wrap_content"
->>>>>>> bb4ee1d8d645d489a6fd1337a24d72409467d1a3
+
             android:background="@drawable/org_pink_grad_box"
-            android:layout_marginTop="10dp"
+
             android:text="Submit"
             android:textColor="@color/white"
             android:textSize="17sp"
