@@ -8,19 +8,17 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
 
-public class HomePage extends AppCompatActivity {
+public class BalancePage extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_page);
+        setContentView(R.layout.activity_balance_page);
 
         bottomNavigationView = findViewById(R.id.bottom_navigator);
-        bottomNavigationView.setSelectedItemId(R.id.home_nav);
+        bottomNavigationView.setSelectedItemId(R.id.balance_nav);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -29,11 +27,11 @@ public class HomePage extends AppCompatActivity {
                 switch(item.getItemId())
                 {
                     case R.id.home_nav:
+                        startActivity(new Intent(getApplicationContext(),HomePage.class));
+                        overridePendingTransition(0,0);
                         return true;
 
                     case R.id.balance_nav:
-                        startActivity(new Intent(getApplicationContext(),BalancePage.class));
-                        overridePendingTransition(0,0);
                         return true;
 
                     case R.id.application_form_nav:
