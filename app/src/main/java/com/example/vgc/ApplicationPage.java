@@ -19,8 +19,20 @@ public class ApplicationPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_application_page);
 
-        Intent intent = getIntent();
-        String jsessionid = intent.getExtras().getString("cookie");
+
+        String name1;
+        String email1;
+        String id1;
+        String number1;
+        String jsessionid;
+        Bundle intent = getIntent().getExtras();
+
+
+        name1 = intent.getString("user_name");
+        email1 = intent.getString("user_email");
+        id1 = intent.getString("user_id");
+        number1 = intent.getString("user_number");
+        jsessionid = intent.getString("cookie");
         System.out.println(jsessionid);
 
 //        Button submit = findViewById(R.id.submit_application);
@@ -52,9 +64,16 @@ public class ApplicationPage extends AppCompatActivity {
                         return true;
 
                     case R.id.profile_nav:
-                        Intent intent1 = new Intent(getApplicationContext(),ProfilePage.class);
-                        intent1.putExtra("cookie", jsessionid);
-                        startActivity(intent1);
+                        Bundle bundle = new Bundle();
+                        bundle.putString("user_name",name1);
+                        bundle.putString("user_id",id1);
+                        bundle.putString("user_email",email1);
+                        bundle.putString("user_number",number1);
+                        bundle.putString("cookie",jsessionid);
+                        Intent info = new Intent(getApplicationContext(), ProfilePage.class);
+                        info.putExtras(bundle);
+                        startActivity(info);
+                        finish();
                         overridePendingTransition(0,0);
                         return true;
                 }

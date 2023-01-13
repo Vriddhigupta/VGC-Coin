@@ -3,12 +3,15 @@ package com.example.vgc;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.CompositePageTransformer;
 import androidx.viewpager2.widget.MarginPageTransformer;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -16,6 +19,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -43,19 +47,34 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class HomePage extends AppCompatActivity {
-
+    
     BottomNavigationView bottomNavigationView;
+    ArrayList<EventResponse> listEvent = new ArrayList<>();
     private ViewPager2 viewPager2;
-    private TextView committee;
-    private ImageView logo;
-    private TextView datetime;
-    private TextView description;
+    private TextView committee1;
+    private ImageView logo1;
+    private TextView datetime1;
+    private TextView description1;
     private CardView view1;
+    private CardView view2;
+    private CardView view3;
+    private TextView committee2;
+    private ImageView logo2;
+    private TextView datetime2;
+    private TextView description2;
+    private TextView committee3;
+    private ImageView logo3;
+    private TextView datetime3;
+    private TextView description3;
+
+
     private Handler sliderHandler = new Handler();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
+
+
         String name1;
         String email1;
         String id1;
@@ -70,13 +89,6 @@ public class HomePage extends AppCompatActivity {
             number1 = intent.getString("user_number");
             jsessionid = intent.getString("cookie");
 
-    view1 = findViewById(R.id.view1);
-    view1.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-//            getEvents(jsessionid);
-        }
-    });
     getEvents(jsessionid);
         bottomNavigationView = findViewById(R.id.bottom_navigator);
         bottomNavigationView.setSelectedItemId(R.id.home_nav);
@@ -104,24 +116,30 @@ public class HomePage extends AppCompatActivity {
                         return true;
 
                     case R.id.application_form_nav:
-                        Intent i2 = new Intent(getApplicationContext(), ApplicationPage.class);
-                        i2.putExtra("cookie", jsessionid);
-                        startActivity(i2);
-
-                        overridePendingTransition(0,0);
-                        return true;
-
-                    case R.id.profile_nav:
-
                         Bundle bundle = new Bundle();
                         bundle.putString("user_name",name1);
                         bundle.putString("user_id",id1);
                         bundle.putString("user_email",email1);
                         bundle.putString("user_number",number1);
                         bundle.putString("cookie",jsessionid);
-                        Intent info = new Intent(getApplicationContext(), ProfilePage.class);
+                        Intent info = new Intent(getApplicationContext(), ApplicationPage.class);
                         info.putExtras(bundle);
                         startActivity(info);
+
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.profile_nav:
+
+                        Bundle bundle2 = new Bundle();
+                        bundle2.putString("user_name",name1);
+                        bundle2.putString("user_id",id1);
+                        bundle2.putString("user_email",email1);
+                        bundle2.putString("user_number",number1);
+                        bundle2.putString("cookie",jsessionid);
+                        Intent info2 = new Intent(getApplicationContext(), ProfilePage.class);
+                        info2.putExtras(bundle2);
+                        startActivity(info2);
                         finish();
                         overridePendingTransition(0,0);
                         return true;
@@ -163,7 +181,11 @@ public class HomePage extends AppCompatActivity {
                 sliderHandler.postDelayed(sliderRunnable, 5000); // slide duration 2 seconds
             }
         });
+
+
     }
+
+
 
     private Runnable sliderRunnable = new Runnable() {
         @Override
@@ -190,39 +212,45 @@ public class HomePage extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<EventResponse>> call, Response<List<EventResponse>> response) {
                 if (response.isSuccessful()) {
-
-
                     List<EventResponse> eventResponse = response.body();
                     System.out.println(eventResponse);
                     String message = "Logged in";
-                    for(int i=0;i<eventResponse.size();i++)
-                    {
-                        EventResponse event = eventResponse.get(i);
-                        String eventName = event.getEventName();
-                        System.out.println(eventName);
-                        committee = findViewById(R.id.committee1);
-                        datetime = findViewById(R.id.datetime1);
-                        description = findViewById(R.id.description1);
-                        logo = findViewById(R.id.imageView1);
 
-                        committee.setText(event.getEventName());
-                        datetime.setText(event.getEventDate()+"  "+event.getEventStartTime()+"-"+event.getEventEndTime());
-                        description.setText(event.getEventDescription());
-                        Picasso.get().load(event.getEventFile()).into(logo);
+                        EventResponse event = eventResponse.get(0);
 
-                        Bundle bundle = new Bundle();
-                        bundle.putString("event_banner",event.getEventFile());
-                        bundle.putString("event_name",event.getEventName());
-                        bundle.putString("event_desc",event.getEventDescription());
-                        bundle.putString("event_venue",event.getEventVenue());
-                        bundle.putString("event_date",event.getEventDate());
-                        bundle.putString("event_start",event.getEventStartTime());
-                        bundle.putString("event_end",event.getEventEndTime());
-                        bundle.putString("event_contact",event.getEventContact());
+                        view1 = findViewById(R.id.view1);
+                        committee1 = findViewById(R.id.committee1);
+                        datetime1 = findViewById(R.id.datetime1);
+                        description1 = findViewById(R.id.description1);
+                        logo1 = findViewById(R.id.imageView1);
+
+                        committee1.setText(event.getEventName());
+                        datetime1.setText(event.getEventDate()+"  "+event.getEventStartTime()+"-"+event.getEventEndTime());
+                        description1.setText(event.getEventDescription());
+                        Picasso.get().load(event.getEventFile()).into(logo1);
+
+//                        Bundle bundle = new Bundle();
+//                        bundle.putString("event_banner",event.getEventFile());
+//                        bundle.putString("event_name",event.getEventName());
+//                        bundle.putString("event_desc",event.getEventDescription());
+//                        bundle.putString("event_venue",event.getEventVenue());
+//                        bundle.putString("event_date",event.getEventDate());
+//                        bundle.putString("event_start",event.getEventStartTime());
+//                        bundle.putString("event_end",event.getEventEndTime());
+//                        bundle.putString("event_contact",event.getEventContact());
 
                         view1.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
+                                Bundle bundle = new Bundle();
+                                bundle.putString("event_banner",event.getEventFile());
+                                bundle.putString("event_name",event.getEventName());
+                                bundle.putString("event_desc",event.getEventDescription());
+                                bundle.putString("event_venue",event.getEventVenue());
+                                bundle.putString("event_date",event.getEventDate());
+                                bundle.putString("event_start",event.getEventStartTime());
+                                bundle.putString("event_end",event.getEventEndTime());
+                                bundle.putString("event_contact",event.getEventContact());
                                 Intent info = new Intent(HomePage.this, Event_Desc.class);
                                 info.putExtras(bundle);
                                 startActivity(info);
@@ -230,6 +258,73 @@ public class HomePage extends AppCompatActivity {
                             }
                         });
 
+                    EventResponse event1 = eventResponse.get(1);
+
+                    view2 = findViewById(R.id.view2);
+                    committee2 = findViewById(R.id.committee2);
+                    datetime2 = findViewById(R.id.datetime2);
+                    description2 = findViewById(R.id.description2);
+                    logo2 = findViewById(R.id.imageView2);
+
+                    committee2.setText(event1.getEventName());
+                    datetime2.setText(event1.getEventDate()+"  "+event1.getEventStartTime()+"-"+event1.getEventEndTime());
+                    description2.setText(event1.getEventDescription());
+                    Picasso.get().load(event1.getEventFile()).into(logo2);
+
+
+
+                    view2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent info = new Intent(HomePage.this, Event_Desc.class);
+                            Bundle bundle = new Bundle();
+                            bundle.putString("event_banner",event.getEventFile());
+                            bundle.putString("event_name",event.getEventName());
+                            bundle.putString("event_desc",event.getEventDescription());
+                            bundle.putString("event_venue",event.getEventVenue());
+                            bundle.putString("event_date",event.getEventDate());
+                            bundle.putString("event_start",event.getEventStartTime());
+                            bundle.putString("event_end",event.getEventEndTime());
+                            bundle.putString("event_contact",event.getEventContact());
+                            info.putExtras(bundle);
+                            startActivity(info);
+                            finish();
+                        }
+                    });
+
+                    EventResponse event2 = eventResponse.get(2);
+
+                    view3 = findViewById(R.id.view3);
+                    committee3 = findViewById(R.id.committee3);
+                    datetime3 = findViewById(R.id.datetime3);
+                    description3 = findViewById(R.id.description3);
+                    logo3 = findViewById(R.id.imageView3);
+
+                    committee3.setText(event2.getEventName());
+                    datetime3.setText(event2.getEventDate()+"  "+event2.getEventStartTime()+"-"+event2.getEventEndTime());
+                    description3.setText(event2.getEventDescription());
+                    Picasso.get().load(event2.getEventFile()).into(logo3);
+
+
+
+                    view3.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent info = new Intent(HomePage.this, Event_Desc.class);
+                            Bundle bundle = new Bundle();
+                            bundle.putString("event_banner",event.getEventFile());
+                            bundle.putString("event_name",event.getEventName());
+                            bundle.putString("event_desc",event.getEventDescription());
+                            bundle.putString("event_venue",event.getEventVenue());
+                            bundle.putString("event_date",event.getEventDate());
+                            bundle.putString("event_start",event.getEventStartTime());
+                            bundle.putString("event_end",event.getEventEndTime());
+                            bundle.putString("event_contact",event.getEventContact());
+                            info.putExtras(bundle);
+                            startActivity(info);
+                            finish();
+                        }
+                    });
 //                        URL url = null;
 //                        try {
 //                            url = new URL(event.getEventFile());
@@ -244,7 +339,7 @@ public class HomePage extends AppCompatActivity {
 //                        }
 //                        logo.setImageBitmap(bmp);
 
-                    }
+
 
 //                    assert loginResponse != null;
 //                    if(loginResponse.getField().equals("First Login")) {

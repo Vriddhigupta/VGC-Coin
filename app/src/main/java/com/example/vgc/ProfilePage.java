@@ -48,8 +48,6 @@ public class ProfilePage extends AppCompatActivity {
             String email1 = bundle.getString("user_email");
             String id1 = bundle.getString("user_id");
             String number1 = bundle.getString("user_number");
-
-
             name.setText(name1);
             id.setText(id1);
             email.setText(email1);
