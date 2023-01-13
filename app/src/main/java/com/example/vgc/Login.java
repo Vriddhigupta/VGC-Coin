@@ -82,20 +82,38 @@ public class Login extends AppCompatActivity {
                     List<String> Cookielist = response.headers().values("Set-Cookie");
                     String jsessionid = (Cookielist .get(0).split(";"))[0];
 
+                    System.out.println(response.body().getStudentName());
+
+
+
                     assert loginResponse != null;
                     if(loginResponse.getField().equals("First Login")) {
                         Toast.makeText(Login.this, message, Toast.LENGTH_LONG).show();
-                        Intent i = new Intent(Login.this, Login_Firsttime.class);
-                        i.putExtra("cookie", jsessionid);
-                        startActivity(i);
+//                        Intent i = new Intent(Login.this, Login_Firsttime.class);
+//                        i.putExtra("cookie", jsessionid);
+                        Bundle bundle = new Bundle();
+                        bundle.putString("user_name",response.body().getStudentName());
+                        bundle.putString("user_id",response.body().getStudentCollegeId());
+                        bundle.putString("user_email",response.body().getStudentMailId());
+                        bundle.putString("user_number",response.body().getStudentContactNumber());
+                        bundle.putString("cookie",jsessionid);
+                        Intent info = new Intent(Login.this, Login_Firsttime.class);
+                        info.putExtras(bundle);
+                        startActivity(info);
                         finish();
                     }
                     else
                     {
                         Toast.makeText(Login.this, message, Toast.LENGTH_LONG).show();
-                        Intent i = new Intent(Login.this, HomePage.class);
-                        i.putExtra("cookie", jsessionid);
-                        startActivity(i);
+                        Bundle bundle = new Bundle();
+                        bundle.putString("user_name",response.body().getStudentName());
+                        bundle.putString("user_id",response.body().getStudentCollegeId());
+                        bundle.putString("user_email",response.body().getStudentMailId());
+                        bundle.putString("user_number",response.body().getStudentContactNumber());
+                        bundle.putString("cookie",jsessionid);
+                        Intent info = new Intent(Login.this, HomePage.class);
+                        info.putExtras(bundle);
+                        startActivity(info);
                         finish();
                     }
                 } else {

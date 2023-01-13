@@ -24,6 +24,7 @@
             android:textSize="32sp" />
 
         <EditText
+            android:id="@+id/eventname"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
@@ -34,6 +35,7 @@
             android:textColorHint="@color/white" />
 
         <EditText
+            android:id="@+id/organizer"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -44,6 +46,7 @@
             android:textColorHint="@color/white" />
 
         <EditText
+            android:id="@+id/description"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -67,15 +70,15 @@
                 android:layout_width="289dp"
                 android:layout_height="45dp"
                 android:layout_marginLeft="2dp"
+                android:gravity="center_vertical"
                 android:hint="Date of Event"
                 android:paddingLeft="9dp"
                 android:textColor="@color/white"
-                android:gravity="center_vertical"
                 android:textColorHint="@color/white"
                 android:textSize="20sp" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/pick_date_btn"
+                android:id="@+id/event_date_btn"
                 android:layout_width="49dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/calender_icon" />
@@ -83,7 +86,7 @@
         </LinearLayout>
 
         <Spinner
-            android:id="@+id/timeslots"
+            android:id="@+id/Eventcategory"
             android:layout_width="367dp"
             android:layout_height="63dp"
             android:layout_gravity="center"
@@ -94,7 +97,7 @@
             android:spinnerMode="dropdown" />
 
         <Button
-            android:id="@+id/login"
+            android:id="@+id/submit_application"
             android:layout_width="158dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"

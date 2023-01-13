@@ -18,9 +18,16 @@ public class HomePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
-
-        Intent intent = getIntent();
-        String jsessionid = intent.getExtras().getString("cookie");
+        String name1;
+        String email1;
+        String id1;
+        String number1;
+        Bundle intent = getIntent().getExtras();
+        name1 = intent.getString("user_name");
+        email1 = intent.getString("user_email");
+        id1 = intent.getString("user_id");
+        number1 = intent.getString("user_number");
+        String jsessionid = intent.getString("cookie");
 
         bottomNavigationView = findViewById(R.id.bottom_navigator);
         bottomNavigationView.setSelectedItemId(R.id.home_nav);
@@ -51,9 +58,16 @@ public class HomePage extends AppCompatActivity {
                         return true;
 
                     case R.id.profile_nav:
-                        Intent i3 = new Intent(getApplicationContext(), ProfilePage.class);
-                        i3.putExtra("cookie", jsessionid);
-                        startActivity(i3);
+
+                        Bundle bundle = new Bundle();
+                        bundle.putString("user_name",name1);
+                        bundle.putString("user_id",id1);
+                        bundle.putString("user_email",email1);
+                        bundle.putString("user_number",number1);
+                        bundle.putString("cookie",jsessionid);
+                        Intent info = new Intent(HomePage.this, ProfilePage.class);
+                        info.putExtras(bundle);
+                        startActivity(info);
                         finish();
                         overridePendingTransition(0,0);
                         return true;

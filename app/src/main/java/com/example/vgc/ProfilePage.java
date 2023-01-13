@@ -8,13 +8,17 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class ProfilePage extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
-
+    TextView name;
+    TextView id;
+    TextView email;
+    TextView phone;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,10 +26,30 @@ public class ProfilePage extends AppCompatActivity {
         Button reset = findViewById(R.id.reset_pass);
         bottomNavigationView = findViewById(R.id.bottom_navigator);
         bottomNavigationView.setSelectedItemId(R.id.profile_nav);
+        name = findViewById(R.id.student_name);
+        id = findViewById(R.id.stud_id);
+        email = findViewById(R.id.student_email);
+        phone = findViewById(R.id.student_number);
 
-        Intent intent = getIntent();
 
-        String jsessionid = intent.getExtras().getString("cookie");
+
+
+        Bundle bundle = getIntent().getExtras();
+        if (bundle!= null) {
+            String name1 = bundle.getString("user_name");
+            String email1 = bundle.getString("user_email");
+            String id1 = bundle.getString("user_id");
+            String number1 = bundle.getString("user_number");
+
+            name.setText(name1);
+            id.setText(id1);
+            email.setText(email1);
+            phone.setText(number1);
+        }
+        String jsessionid = bundle.getString("cookie");
+        System.out.println(bundle.getString("user_name"));
+
+
         System.out.println(jsessionid);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
