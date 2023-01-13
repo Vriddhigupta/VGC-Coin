@@ -28,6 +28,7 @@ import com.example.loginclient.loginApi;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.gson.JsonElement;
+import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Text;
 
@@ -203,9 +204,11 @@ public class HomePage extends AppCompatActivity {
                         datetime = findViewById(R.id.datetime1);
                         description = findViewById(R.id.description1);
                         logo = findViewById(R.id.imageView1);
+
                         committee.setText(event.getEventName());
                         datetime.setText(event.getEventDate()+"  "+event.getEventStartTime()+"-"+event.getEventEndTime());
                         description.setText(event.getEventDescription());
+                        Picasso.get().load(event.getEventFile()).into(logo);
 
                         Bundle bundle = new Bundle();
                         bundle.putString("event_banner",event.getEventFile());

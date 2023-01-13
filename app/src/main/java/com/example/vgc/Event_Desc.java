@@ -2,11 +2,17 @@ package com.example.vgc;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import org.w3c.dom.Text;
+
+import java.io.InputStream;
+import java.net.URL;
 
 public class Event_Desc extends AppCompatActivity {
 
@@ -43,6 +49,8 @@ public class Event_Desc extends AppCompatActivity {
         TextView venue = findViewById(R.id.event_venue);
         TextView contact = findViewById(R.id.event_contact);
 
+//        banner.setImageDrawable(LoadImageFromWebOperations(event_banner));
+        Picasso.get().load(event_banner).into(banner);
         name.setText(event_name);
         description.setText(event_desc);
         date.setText(event_date);
@@ -52,5 +60,15 @@ public class Event_Desc extends AppCompatActivity {
 
 
     }
+
+//    public static Drawable LoadImageFromWebOperations(String url) {
+//        try {
+//            InputStream is = (InputStream) new URL(url).getContent();
+//            Drawable d = Drawable.createFromStream(is, "src name");
+//            return d;
+//        } catch (Exception e) {
+//            return null;
+//        }
+//    }
 
 }
