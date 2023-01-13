@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -11,8 +12,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.loginclient.AppResponse;
+import com.example.loginclient.loginApi;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class BalancePage extends AppCompatActivity {
 
@@ -24,12 +34,18 @@ public class BalancePage extends AppCompatActivity {
     private EditText amount;
     private Button save;
     private Button cancel;
+    private Integer eventResponse;
+    private TextView balance;
 
+
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_balance_page);
         TextView owner = findViewById(R.id.owner);
+        balance = findViewById(R.id.balance);
+
         Bundle bundle = getIntent().getExtras();
         pay_to_canteen = findViewById(R.id.pay_by_id);
         pay_to_xerox = findViewById(R.id.pay_by_qr);
@@ -43,7 +59,7 @@ public class BalancePage extends AppCompatActivity {
         String jsessionid = intent.getString("cookie");
             String name1 = bundle.getString("user_name");
             owner.setText(name1);
-
+getBalance(jsessionid);
             pay_to_canteen.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -117,6 +133,32 @@ public class BalancePage extends AppCompatActivity {
         dialogBuilder.setView(transactionView);
         dialog = dialogBuilder.create();
         dialog.show();
+
+    }
+
+
+
+
+    public void getBalance(String cookie) {
+        Call<Integer> appResponseCall = loginApi.getService().get_balance(cookie);
+        appResponseCall.enqueue(new Callback<Integer>() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onResponse(Call<Integer> call, Response<Integer> response) {
+
+                eventResponse = response.body();
+                System.out.println(eventResponse);
+                balance.setText(eventResponse.toString());
+
+
+            }
+
+            @Override
+            public void onFailure(Call<Integer> call, Throwable t) {
+                String message = t.getLocalizedMessage();
+                Toast.makeText(BalancePage.this, message, Toast.LENGTH_LONG).show();
+            }
+        });
 
     }
 }

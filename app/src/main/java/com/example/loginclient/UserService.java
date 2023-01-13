@@ -26,4 +26,7 @@ public interface UserService {
     @GET("/student/getapplications")
     Call<List<AppResponse>> app_details(@Header("Cookie") String cookie);
 
+    @GET("/student/balance")
+    Call<Integer> get_balance(@Header("Cookie") String cookie);
+
 }
