@@ -7,123 +7,488 @@
     android:background="@color/black"
     tools:context=".ApplicationPage">
 
-    <LinearLayout
+
+    <Button
+        android:id="@+id/add_appli_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="62dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="63dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="47dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/org_pink_grad_box"
+        android:textSize="17sp"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:gravity="center"
+        android:text="Add New Application" />
+
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="20dp"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="269dp"
-            android:layout_height="58dp"
-            android:fontFamily="@font/playfair_display_bold"
-            android:text="Application Form"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="32sp" />
-
-        <EditText
-            android:id="@+id/eventname"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/orange_border_box"
-            android:hint="Event Name"
-            android:padding="18sp"
-            android:textColor="@color/dark_grey"
-            android:textColorHint="@color/white" />
-
-        <EditText
-            android:id="@+id/organizer"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/pink_border_box"
-            android:hint="Organizer Name"
-            android:padding="18sp"
-            android:textColor="@color/dark_grey"
-            android:textColorHint="@color/white" />
-
-        <EditText
-            android:id="@+id/description"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/orange_border_box"
-            android:hint="Description of the Event"
-            android:padding="18sp"
-            android:textColor="@color/dark_grey"
-            android:textColorHint="@color/white" />
+        android:layout_below="@id/add_appli_btn"
+        android:layout_above="@id/bottom_navigator">
 
         <LinearLayout
-            android:layout_width="367dp"
-            android:layout_height="63dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/edittexbox"
-            android:orientation="horizontal"
-            android:padding="8dp">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/display_date"
-                android:layout_width="289dp"
-                android:layout_height="45dp"
-                android:layout_marginLeft="2dp"
-                android:gravity="center_vertical"
-                android:hint="Date of Event"
-                android:paddingLeft="9dp"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
-                android:textSize="20sp" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/event_date_btn"
-                android:layout_width="49dp"
+            <LinearLayout
+                android:id="@+id/event2"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/calender_icon" />
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/pink_border_box"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_marginTop="8dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="25sp"
+                        android:text="20 "
+                        android:textColor="@color/white"/>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/view4"
+                        android:layout_marginTop="8dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerHorizontal="true"
+                        android:elevation="12dp"
+                        android:innerRadius="0dp"
+                        android:shape="ring"
+                        app:cardBackgroundColor="@color/black"
+                        app:cardCornerRadius="40dp">
+
+                        <ImageView
+                            android:id="@+id/imageView3"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:src="@drawable/vgc_coin" />
+
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="23dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="Google Developers Student Club"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="18dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="23 Jan 2023"
+                        android:textAlignment="viewStart"
+                        android:textColor="#9F9696"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Technical"
+                        android:textAlignment="viewEnd"
+                        android:textColor="#9F9696"
+                        android:textSize="17sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="end"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Status: "
+                        android:textColor="#9F9696"
+                        android:textSize="17sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pending"
+                        android:textColor="@color/white"
+                        android:textSize="17sp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/event4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/upcom_event_tv"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/pink_border_box"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_marginTop="8dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="25sp"
+                        android:text="20 "
+                        android:textColor="@color/white"/>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/view6"
+                        android:layout_marginTop="8dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerHorizontal="true"
+                        android:elevation="12dp"
+                        android:innerRadius="0dp"
+                        android:shape="ring"
+                        app:cardBackgroundColor="@color/black"
+                        app:cardCornerRadius="40dp">
+
+                        <ImageView
+                            android:id="@+id/imageView5"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:src="@drawable/vgc_coin" />
+
+                    </androidx.cardview.widget.CardView>
+
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="23dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="Google Developers Student Club"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="18dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="23 Jan 2023"
+                        android:textAlignment="viewStart"
+                        android:textColor="#9F9696"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Technical"
+                        android:textAlignment="viewEnd"
+                        android:textColor="#9F9696"
+                        android:textSize="17sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="end"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Status: "
+                        android:textColor="#9F9696"
+                        android:textSize="17sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pending"
+                        android:textColor="@color/white"
+                        android:textSize="17sp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/event3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/upcom_event_tv"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/pink_border_box"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_marginTop="8dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="25sp"
+                        android:text="20 "
+                        android:textColor="@color/white"/>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/view5"
+                        android:layout_marginTop="8dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerHorizontal="true"
+                        android:elevation="12dp"
+                        android:innerRadius="0dp"
+                        android:shape="ring"
+                        app:cardBackgroundColor="@color/black"
+                        app:cardCornerRadius="40dp">
+
+                        <ImageView
+                            android:id="@+id/imageView4"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:src="@drawable/vgc_coin" />
+
+                    </androidx.cardview.widget.CardView>
+
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="23dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="Google Developers Student Club"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="18dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="23 Jan 2023"
+                        android:textAlignment="viewStart"
+                        android:textColor="#9F9696"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Technical"
+                        android:textAlignment="viewEnd"
+                        android:textColor="#9F9696"
+                        android:textSize="17sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="end"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Status: "
+                        android:textColor="#9F9696"
+                        android:textSize="17sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pending"
+                        android:textColor="@color/white"
+                        android:textSize="17sp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/event1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/upcom_event_tv"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/pink_border_box"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_marginTop="8dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="25sp"
+                        android:text="20 "
+                        android:textColor="@color/white"/>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/view3"
+                        android:layout_marginTop="8dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerHorizontal="true"
+                        android:elevation="12dp"
+                        android:innerRadius="0dp"
+                        android:shape="ring"
+                        app:cardBackgroundColor="@color/black"
+                        app:cardCornerRadius="40dp">
+
+                        <ImageView
+                            android:id="@+id/imageView2"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:src="@drawable/vgc_coin" />
+
+                    </androidx.cardview.widget.CardView>
+
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="23dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="Google Developers Student Club"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="18dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="23 Jan 2023"
+                        android:textAlignment="viewStart"
+                        android:textColor="#9F9696"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Technical"
+                        android:textAlignment="viewEnd"
+                        android:textColor="#9F9696"
+                        android:textSize="17sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="end"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Status: "
+                        android:textColor="#9F9696"
+                        android:textSize="17sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pending"
+                        android:textColor="@color/white"
+                        android:textSize="17sp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
 
         </LinearLayout>
+    </ScrollView>
 
-        <Spinner
-            android:id="@+id/Eventcategory"
-            android:layout_width="367dp"
-            android:layout_height="63dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/edittexbox"
-            android:orientation="horizontal"
-            android:padding="8dp"
-            android:spinnerMode="dropdown" />
 
-        <Button
-            android:id="@+id/submit_application"
-            android:layout_width="158dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/org_pink_grad_box"
-            android:text="Submit"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="17sp" />
-
-    </LinearLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigator"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
         android:background="@drawable/grey_box"
         android:elevation="2dp"
+        android:layout_margin="20dp"
         app:itemIconSize="29dp"
-        app:itemIconTint="@drawable/bottom_nav_selector"
-        app:itemTextColor="@drawable/bottom_nav_selector"
         app:labelVisibilityMode="unlabeled"
-        app:menu="@menu/bottom_nav_menu" />
+        app:itemTextColor="@drawable/bottom_nav_selector"
+        app:itemIconTint="@drawable/bottom_nav_selector"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_nav_menu"/>
 
-</RelativeLayout>
+    </RelativeLayout>

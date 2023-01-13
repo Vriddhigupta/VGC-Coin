@@ -1,11 +1,15 @@
 package com.example.vgc;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -13,13 +17,22 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class BalancePage extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
+    Button pay_to_canteen;
+    Button pay_to_xerox;
+    private AlertDialog.Builder dialogBuilder;
+    private AlertDialog dialog;
+    private EditText amount;
+    private Button save;
+    private Button cancel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_balance_page);
         TextView owner = findViewById(R.id.owner);
         Bundle bundle = getIntent().getExtras();
-
+        pay_to_canteen = findViewById(R.id.pay_by_id);
+        pay_to_xerox = findViewById(R.id.pay_by_qr);
         String email1;
         String id1;
         String number1;
@@ -31,6 +44,18 @@ public class BalancePage extends AppCompatActivity {
             String name1 = bundle.getString("user_name");
             owner.setText(name1);
 
+            pay_to_canteen.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    createTransactions();
+                }
+            });
+            pay_to_xerox.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    createTransactions();
+                }
+            });
         bottomNavigationView = findViewById(R.id.bottom_navigator);
         bottomNavigationView.setSelectedItemId(R.id.balance_nav);
 
@@ -81,5 +106,17 @@ public class BalancePage extends AppCompatActivity {
                 return false;
             }
         });
+    }
+    public void createTransactions()
+    {
+        dialogBuilder = new AlertDialog.Builder(this);
+        final View transactionView = getLayoutInflater().inflate(R.layout.popup,null);
+        amount = transactionView.findViewById(R.id.amount);
+        save = transactionView.findViewById(R.id.send);
+        cancel = transactionView.findViewById(R.id.cancel);
+        dialogBuilder.setView(transactionView);
+        dialog = dialogBuilder.create();
+        dialog.show();
+
     }
 }

@@ -2,27 +2,54 @@ package com.example.vgc;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.CompositePageTransformer;
 import androidx.viewpager2.widget.MarginPageTransformer;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.loginclient.EventResponse;
+import com.example.loginclient.NewResponse;
+import com.example.loginclient.UserRequest;
+import com.example.loginclient.loginApi;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.gson.JsonElement;
 
+import org.w3c.dom.Text;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class HomePage extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
     private ViewPager2 viewPager2;
+    private TextView committee;
+    private ImageView logo;
+    private TextView datetime;
+    private TextView description;
+    private CardView view1;
     private Handler sliderHandler = new Handler();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +69,14 @@ public class HomePage extends AppCompatActivity {
             number1 = intent.getString("user_number");
             jsessionid = intent.getString("cookie");
 
-
-
+    view1 = findViewById(R.id.view1);
+    view1.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+//            getEvents(jsessionid);
+        }
+    });
+    getEvents(jsessionid);
         bottomNavigationView = findViewById(R.id.bottom_navigator);
         bottomNavigationView.setSelectedItemId(R.id.home_nav);
 
@@ -66,7 +99,6 @@ public class HomePage extends AppCompatActivity {
                         Intent info1 = new Intent(getApplicationContext(), BalancePage.class);
                         info1.putExtras(bundle1);
                         startActivity(info1);
-                        finish();
                         overridePendingTransition(0,0);
                         return true;
 
@@ -74,7 +106,7 @@ public class HomePage extends AppCompatActivity {
                         Intent i2 = new Intent(getApplicationContext(), ApplicationPage.class);
                         i2.putExtra("cookie", jsessionid);
                         startActivity(i2);
-                        finish();
+
                         overridePendingTransition(0,0);
                         return true;
 
@@ -148,5 +180,112 @@ public class HomePage extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         sliderHandler.postDelayed(sliderRunnable, 2000);
+    }
+
+    public void getEvents(String cookie) {
+        Call<List<EventResponse>> eventResponseCall = loginApi.getService().event_details(cookie);
+        eventResponseCall.enqueue(new Callback<List<EventResponse>>() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onResponse(Call<List<EventResponse>> call, Response<List<EventResponse>> response) {
+                if (response.isSuccessful()) {
+
+
+                    List<EventResponse> eventResponse = response.body();
+                    System.out.println(eventResponse);
+                    String message = "Logged in";
+                    for(int i=0;i<eventResponse.size();i++)
+                    {
+                        EventResponse event = eventResponse.get(i);
+                        String eventName = event.getEventName();
+                        System.out.println(eventName);
+                        committee = findViewById(R.id.committee1);
+                        datetime = findViewById(R.id.datetime1);
+                        description = findViewById(R.id.description1);
+                        logo = findViewById(R.id.imageView1);
+                        committee.setText(event.getEventName());
+                        datetime.setText(event.getEventDate()+"  "+event.getEventStartTime()+"-"+event.getEventEndTime());
+                        description.setText(event.getEventDescription());
+
+                        Bundle bundle = new Bundle();
+                        bundle.putString("event_banner",event.getEventFile());
+                        bundle.putString("event_name",event.getEventName());
+                        bundle.putString("event_desc",event.getEventDescription());
+                        bundle.putString("event_venue",event.getEventVenue());
+                        bundle.putString("event_date",event.getEventDate());
+                        bundle.putString("event_start",event.getEventStartTime());
+                        bundle.putString("event_end",event.getEventEndTime());
+                        bundle.putString("event_contact",event.getEventContact());
+
+                        view1.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent info = new Intent(HomePage.this, Event_Desc.class);
+                                info.putExtras(bundle);
+                                startActivity(info);
+                                finish();
+                            }
+                        });
+
+//                        URL url = null;
+//                        try {
+//                            url = new URL(event.getEventFile());
+//                        } catch (MalformedURLException e) {
+//                            e.printStackTrace();
+//                        }
+//                        Bitmap bmp = null;
+//                        try {
+//                            bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+//                        } catch (IOException e) {
+//                            e.printStackTrace();
+//                        }
+//                        logo.setImageBitmap(bmp);
+
+                    }
+
+//                    assert loginResponse != null;
+//                    if(loginResponse.getField().equals("First Login")) {
+//                        Toast.makeText(Login.this, message, Toast.LENGTH_LONG).show();
+////                        Intent i = new Intent(Login.this, Login_Firsttime.class);
+////                        i.putExtra("cookie", jsessionid);
+//                        Bundle bundle = new Bundle();
+//                        bundle.putString("user_name",response.body().getStudentName());
+//                        bundle.putString("user_id",response.body().getStudentCollegeId());
+//                        bundle.putString("user_email",response.body().getStudentMailId());
+//                        bundle.putString("user_number",response.body().getStudentContactNumber());
+//                        bundle.putString("cookie",jsessionid);
+//                        Intent info = new Intent(Login.this, Login_Firsttime.class);
+//                        Intent info2 = new Intent(Login.this, HomePage.class);
+//                        info.putExtras(bundle);
+//                        info2.putExtras(bundle);
+//                        startActivity(info);
+//                        finish();
+//                    }
+//                    else
+//                    {
+//                        Toast.makeText(Login.this, message, Toast.LENGTH_LONG).show();
+//                        Bundle bundle = new Bundle();
+//                        bundle.putString("user_name",response.body().getStudentName());
+//                        bundle.putString("user_id",response.body().getStudentCollegeId());
+//                        bundle.putString("user_email",response.body().getStudentMailId());
+//                        bundle.putString("user_number",response.body().getStudentContactNumber());
+//                        bundle.putString("cookie",jsessionid);
+//                        Intent info = new Intent(Login.this, HomePage.class);
+//                        info.putExtras(bundle);
+//                        startActivity(info);
+//                        finish();
+//                    }
+                } else {
+                    String message = "Unable to login. An error occured";
+                    Toast.makeText(HomePage.this, message, Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<EventResponse>> call, Throwable t) {
+                String message = t.getLocalizedMessage();
+                Toast.makeText(HomePage.this, message, Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }

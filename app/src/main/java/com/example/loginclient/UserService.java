@@ -1,4 +1,6 @@
 package com.example.loginclient;
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -17,5 +19,8 @@ public interface UserService {
 
     @GET("/student/logout")
     Call<UserResponse> user_logout(@Header("Cookie") String cookie);
+
+    @GET("/student/getevents")
+    Call<List<EventResponse>> event_details(@Header("Cookie") String cookie);
 
 }

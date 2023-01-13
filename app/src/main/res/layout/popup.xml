@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+    <EditText
+        android:id="@+id/amount"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/pink_border_box"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:hint="Enter the amount"
+        android:textColorHint="@color/white"
+        android:inputType="number"
+        android:textColor="@color/white"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="50dp"
+        android:gravity="center"/>
+
+    <LinearLayout
+        android:layout_below="@id/amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center_horizontal"
+        android:layout_marginStart="100dp">
+
+        <Button
+            android:id="@+id/send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="@drawable/org_pink_grad_box"
+            android:text="Send"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            />
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:text="Cancel"
+            android:textColor="@color/white"
+            android:background="@drawable/org_pink_grad_box"
+            android:textSize="20sp"/>
+    </LinearLayout>
+
+</RelativeLayout>
