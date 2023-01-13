@@ -29,6 +29,7 @@ public class ProfilePage extends AppCompatActivity {
     TextView id;
     TextView email;
     TextView phone;
+    TextView name_initial;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,13 +41,14 @@ public class ProfilePage extends AppCompatActivity {
         id = findViewById(R.id.stud_id);
         email = findViewById(R.id.student_email);
         phone = findViewById(R.id.student_number);
-
+        name_initial = findViewById(R.id.name_initial);
         Bundle bundle = getIntent().getExtras();
         if (bundle!= null) {
             String name1 = bundle.getString("user_name");
             String email1 = bundle.getString("user_email");
             String id1 = bundle.getString("user_id");
             String number1 = bundle.getString("user_number");
+
 
             name.setText(name1);
             id.setText(id1);

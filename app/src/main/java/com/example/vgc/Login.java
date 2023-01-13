@@ -98,7 +98,9 @@ public class Login extends AppCompatActivity {
                         bundle.putString("user_number",response.body().getStudentContactNumber());
                         bundle.putString("cookie",jsessionid);
                         Intent info = new Intent(Login.this, Login_Firsttime.class);
+                        Intent info2 = new Intent(Login.this, HomePage.class);
                         info.putExtras(bundle);
+                        info2.putExtras(bundle);
                         startActivity(info);
                         finish();
                     }

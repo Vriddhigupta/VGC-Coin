@@ -32,12 +32,17 @@ public class HomePage extends AppCompatActivity {
         String email1;
         String id1;
         String number1;
+        String jsessionid;
         Bundle intent = getIntent().getExtras();
-        name1 = intent.getString("user_name");
-        email1 = intent.getString("user_email");
-        id1 = intent.getString("user_id");
-        number1 = intent.getString("user_number");
-        String jsessionid = intent.getString("cookie");
+
+
+            name1 = intent.getString("user_name");
+            email1 = intent.getString("user_email");
+            id1 = intent.getString("user_id");
+            number1 = intent.getString("user_number");
+            jsessionid = intent.getString("cookie");
+
+
 
         bottomNavigationView = findViewById(R.id.bottom_navigator);
         bottomNavigationView.setSelectedItemId(R.id.home_nav);
@@ -58,7 +63,7 @@ public class HomePage extends AppCompatActivity {
                         bundle1.putString("user_email",email1);
                         bundle1.putString("user_number",number1);
                         bundle1.putString("cookie",jsessionid);
-                        Intent info1 = new Intent(HomePage.this, BalancePage.class);
+                        Intent info1 = new Intent(getApplicationContext(), BalancePage.class);
                         info1.putExtras(bundle1);
                         startActivity(info1);
                         finish();
@@ -81,7 +86,7 @@ public class HomePage extends AppCompatActivity {
                         bundle.putString("user_email",email1);
                         bundle.putString("user_number",number1);
                         bundle.putString("cookie",jsessionid);
-                        Intent info = new Intent(HomePage.this, ProfilePage.class);
+                        Intent info = new Intent(getApplicationContext(), ProfilePage.class);
                         info.putExtras(bundle);
                         startActivity(info);
                         finish();
