@@ -7,7 +7,7 @@ import retrofit2.http.POST;
 
 public interface UserService {
     @POST("/student/login")
-    Call<UserResponse> loginuser(@Body UserRequest loginRequest);
+    Call<NewResponse> loginuser(@Body UserRequest loginRequest);
 
     @POST("/student/signup")
     Call<UserResponse> registeruser(@Body RegisterRequest registerRequest);

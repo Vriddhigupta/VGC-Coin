@@ -39,7 +39,7 @@
             android:background="@drawable/orange_border_box"
             android:hint="Password"
             android:padding="18sp"
-            android:textColor="@color/dark_grey"
+            android:textColor="@color/white"
             android:textColorHint="@color/white" />
 
         <EditText
@@ -50,7 +50,7 @@
             android:background="@drawable/pink_border_box"
             android:hint="Confirm Password"
             android:padding="18sp"
-            android:textColor="@color/dark_grey"
+            android:textColor="@color/white"
             android:textColorHint="@color/white" />
 
         <Button

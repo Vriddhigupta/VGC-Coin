@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.loginclient.NewResponse;
 import com.example.loginclient.UserRequest;
 import com.example.loginclient.UserResponse;
 import com.example.loginclient.loginApi;
@@ -69,20 +70,34 @@ public class Login extends AppCompatActivity {
 
 
     public void loginUser(UserRequest loginRequest) {
-        Call<UserResponse> loginResponseCall = loginApi.getService().loginuser(loginRequest);
-        loginResponseCall.enqueue(new Callback<UserResponse>() {
+        Call<NewResponse> loginResponseCall = loginApi.getService().loginuser(loginRequest);
+        loginResponseCall.enqueue(new Callback<NewResponse>() {
             @Override
-            public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
+            public void onResponse(Call<NewResponse> call, Response<NewResponse> response) {
                 if (response.isSuccessful()) {
-                    UserResponse loginResponse = response.body();
+                    NewResponse loginResponse = response.body();
+                    System.out.println(loginResponse);
                     String message = "Logged in";
+
                     List<String> Cookielist = response.headers().values("Set-Cookie");
                     String jsessionid = (Cookielist .get(0).split(";"))[0];
-                    Toast.makeText(Login.this, message, Toast.LENGTH_LONG).show();
-                    Intent i = new Intent(Login.this, Login_Firsttime.class);
-                    i.putExtra("cookie", jsessionid);
-                    startActivity(i);
-                    finish();
+
+                    assert loginResponse != null;
+                    if(loginResponse.getField().equals("First Login")) {
+                        Toast.makeText(Login.this, message, Toast.LENGTH_LONG).show();
+                        Intent i = new Intent(Login.this, Login_Firsttime.class);
+                        i.putExtra("cookie", jsessionid);
+                        startActivity(i);
+                        finish();
+                    }
+                    else
+                    {
+                        Toast.makeText(Login.this, message, Toast.LENGTH_LONG).show();
+                        Intent i = new Intent(Login.this, HomePage.class);
+                        i.putExtra("cookie", jsessionid);
+                        startActivity(i);
+                        finish();
+                    }
                 } else {
                     String message = "Unable to login. An error occured";
                     Toast.makeText(Login.this, message, Toast.LENGTH_LONG).show();
@@ -90,7 +105,7 @@ public class Login extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<UserResponse> call, Throwable t) {
+            public void onFailure(Call<NewResponse> call, Throwable t) {
                 String message = t.getLocalizedMessage();
                 Toast.makeText(Login.this, message, Toast.LENGTH_LONG).show();
             }
