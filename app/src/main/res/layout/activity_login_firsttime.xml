@@ -9,7 +9,7 @@
     tools:context=".Login_Firsttime">
 
     <Button
-        android:layout_width="34dp"
+        android:layout_width="39dp"
         android:layout_height="30dp"
         android:layout_marginTop="150dp"
         android:layout_marginLeft="20dp"
