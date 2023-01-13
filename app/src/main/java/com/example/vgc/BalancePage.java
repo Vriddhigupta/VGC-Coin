@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -16,7 +17,13 @@ public class BalancePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_balance_page);
+        TextView owner = findViewById(R.id.owner);
+        Bundle bundle = getIntent().getExtras();
+        if (bundle!= null) {
+            String name1 = bundle.getString("user_name");
+            owner.setText(name1);
 
+        }
         bottomNavigationView = findViewById(R.id.bottom_navigator);
         bottomNavigationView.setSelectedItemId(R.id.balance_nav);
 

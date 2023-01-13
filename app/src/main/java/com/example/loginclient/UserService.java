@@ -15,4 +15,7 @@ public interface UserService {
     @POST("/student/changepassword")
     Call<UserResponse> changepassword(@Header("Cookie") String cookie, @Body ChangeRequest changeRequest);
 
+    @GET("/student/logout")
+    Call<UserResponse> user_logout(@Header("Cookie") String cookie);
+
 }

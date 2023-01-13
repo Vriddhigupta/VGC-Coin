@@ -9,8 +9,18 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.loginclient.NewResponse;
+import com.example.loginclient.UserResponse;
+import com.example.loginclient.loginApi;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ProfilePage extends AppCompatActivity {
 
@@ -30,9 +40,6 @@ public class ProfilePage extends AppCompatActivity {
         id = findViewById(R.id.stud_id);
         email = findViewById(R.id.student_email);
         phone = findViewById(R.id.student_number);
-
-
-
 
         Bundle bundle = getIntent().getExtras();
         if (bundle!= null) {
@@ -90,5 +97,34 @@ public class ProfilePage extends AppCompatActivity {
                 finish();
             }
         });
+
+        Button logout = findViewById(R.id.logout);
+       logout.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+
+               Call<UserResponse> loginResponseCall = loginApi.getService().user_logout(jsessionid);
+               loginResponseCall.enqueue(new Callback<UserResponse>() {
+                   @Override
+                   public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
+                       if (response.isSuccessful()) {
+                           UserResponse loginResponse = response.body();
+                           System.out.println(loginResponse);
+                           String message = "Logged out";
+                           Toast.makeText(ProfilePage.this, message, Toast.LENGTH_LONG).show();
+                           Intent i = new Intent(ProfilePage.this, Login.class);
+                           startActivity(i);
+                           finish();
+                       }}
+                   @Override
+                   public void onFailure(Call<UserResponse> call, Throwable t) {
+                       String message = t.getLocalizedMessage();
+                       Toast.makeText(ProfilePage.this, message, Toast.LENGTH_LONG).show();
+                   }
+               });
+
+
+           }
+       });
     }
 }
