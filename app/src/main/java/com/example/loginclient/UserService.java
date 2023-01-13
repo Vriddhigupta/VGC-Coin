@@ -23,4 +23,7 @@ public interface UserService {
     @GET("/student/getevents")
     Call<List<EventResponse>> event_details(@Header("Cookie") String cookie);
 
+    @GET("/student/getapplications")
+    Call<List<AppResponse>> app_details(@Header("Cookie") String cookie);
+
 }

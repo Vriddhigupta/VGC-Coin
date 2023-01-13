@@ -47,9 +47,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class HomePage extends AppCompatActivity {
-    
+
     BottomNavigationView bottomNavigationView;
-    ArrayList<EventResponse> listEvent = new ArrayList<>();
     private ViewPager2 viewPager2;
     private TextView committee1;
     private ImageView logo1;
@@ -229,15 +228,6 @@ public class HomePage extends AppCompatActivity {
                         description1.setText(event.getEventDescription());
                         Picasso.get().load(event.getEventFile()).into(logo1);
 
-//                        Bundle bundle = new Bundle();
-//                        bundle.putString("event_banner",event.getEventFile());
-//                        bundle.putString("event_name",event.getEventName());
-//                        bundle.putString("event_desc",event.getEventDescription());
-//                        bundle.putString("event_venue",event.getEventVenue());
-//                        bundle.putString("event_date",event.getEventDate());
-//                        bundle.putString("event_start",event.getEventStartTime());
-//                        bundle.putString("event_end",event.getEventEndTime());
-//                        bundle.putString("event_contact",event.getEventContact());
 
                         view1.setOnClickListener(new View.OnClickListener() {
                             @Override

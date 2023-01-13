@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.VGC">
         <activity
+            android:name=".ApplicationViewPage"
+            android:exported="false" />
+        <activity
             android:name=".Event_Desc"
             android:exported="false" />
         <activity
@@ -19,6 +22,9 @@
             android:exported="false" />
         <activity
             android:name=".ApplicationPage"
+            android:exported="false" />
+        <activity
+            android:name=".AddApplication"
             android:exported="false" />
         <activity
             android:name=".ProfilePage"

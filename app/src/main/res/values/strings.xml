@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">VGC</string>
+    <string-array name="category">
+        <item>Academics</item>
+        <item>Technical</item>
+        <item>Sports</item>
+        <item>Cultural</item>
+        <item>Social</item>
+
+    </string-array>
 </resources>

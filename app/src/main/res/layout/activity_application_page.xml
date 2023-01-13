@@ -9,7 +9,7 @@
 
 
     <Button
-        android:id="@+id/add_appli_btn"
+        android:id="@+id/to_add_appli_btn"
         android:layout_width="wrap_content"
         android:layout_height="62dp"
         android:layout_alignParentStart="true"
@@ -19,17 +19,16 @@
         android:layout_marginEnd="47dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/org_pink_grad_box"
-        android:textSize="17sp"
-        android:textColor="@color/white"
-        android:textAllCaps="false"
         android:gravity="center"
-        android:text="Add New Application" />
-
+        android:text="Add New Application"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="17sp" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/add_appli_btn"
+        android:layout_below="@id/to_add_appli_btn"
         android:layout_above="@id/bottom_navigator">
 
         <LinearLayout
@@ -74,7 +73,7 @@
                         app:cardCornerRadius="40dp">
 
                         <ImageView
-                            android:id="@+id/imageView3"
+                            android:id="@+id/imageView4"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:layout_alignParentTop="true"
@@ -84,6 +83,7 @@
                     </androidx.cardview.widget.CardView>
 
                     <TextView
+                        android:id="@+id/app_title4"
                         android:layout_width="wrap_content"
                         android:layout_height="50dp"
                         android:layout_marginLeft="23dp"
@@ -100,6 +100,7 @@
                     android:orientation="horizontal">
 
                     <TextView
+                        android:id="@+id/app_date4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
@@ -109,6 +110,7 @@
                         android:textSize="17sp" />
 
                     <TextView
+                        android:id="@+id/app_category4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
@@ -133,6 +135,7 @@
                         android:textSize="17sp"/>
 
                     <TextView
+                        android:id="@+id/app_status4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Pending"
@@ -169,7 +172,7 @@
                         android:textColor="@color/white"/>
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/view6"
+                        android:id="@+id/view5"
                         android:layout_marginTop="8dp"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
@@ -193,6 +196,7 @@
 
 
                     <TextView
+                        android:id="@+id/app_title5"
                         android:layout_width="wrap_content"
                         android:layout_height="50dp"
                         android:layout_marginLeft="23dp"
@@ -209,6 +213,7 @@
                     android:orientation="horizontal">
 
                     <TextView
+                        android:id="@+id/app_date5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
@@ -218,6 +223,7 @@
                         android:textSize="17sp" />
 
                     <TextView
+                        android:id="@+id/app_category5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
@@ -242,6 +248,7 @@
                         android:textSize="17sp"/>
 
                     <TextView
+                        android:id="@+id/app_status5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Pending"
@@ -278,7 +285,7 @@
                         android:textColor="@color/white"/>
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/view5"
+                        android:id="@+id/view7"
                         android:layout_marginTop="8dp"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
@@ -290,7 +297,7 @@
                         app:cardCornerRadius="40dp">
 
                         <ImageView
-                            android:id="@+id/imageView4"
+                            android:id="@+id/imageView7"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:layout_alignParentTop="true"
@@ -302,6 +309,7 @@
 
 
                     <TextView
+                        android:id="@+id/app_title7"
                         android:layout_width="wrap_content"
                         android:layout_height="50dp"
                         android:layout_marginLeft="23dp"
@@ -318,6 +326,7 @@
                     android:orientation="horizontal">
 
                     <TextView
+                        android:id="@+id/app_date7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
@@ -327,6 +336,7 @@
                         android:textSize="17sp" />
 
                     <TextView
+                        android:id="@+id/app_category7"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
@@ -344,6 +354,7 @@
                     android:orientation="horizontal">
 
                     <TextView
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Status: "
@@ -351,6 +362,7 @@
                         android:textSize="17sp"/>
 
                     <TextView
+                        android:id="@+id/app_status7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Pending"
@@ -387,7 +399,7 @@
                         android:textColor="@color/white"/>
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/view3"
+                        android:id="@+id/view8"
                         android:layout_marginTop="8dp"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
@@ -399,7 +411,7 @@
                         app:cardCornerRadius="40dp">
 
                         <ImageView
-                            android:id="@+id/imageView2"
+                            android:id="@+id/imageView8"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:layout_alignParentTop="true"
@@ -411,6 +423,7 @@
 
 
                     <TextView
+                        android:id="@+id/app_title8"
                         android:layout_width="wrap_content"
                         android:layout_height="50dp"
                         android:layout_marginLeft="23dp"
@@ -427,6 +440,7 @@
                     android:orientation="horizontal">
 
                     <TextView
+                        android:id="@+id/app_date8"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
@@ -436,6 +450,7 @@
                         android:textSize="17sp" />
 
                     <TextView
+                        android:id="@+id/app_category8"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
@@ -460,6 +475,7 @@
                         android:textSize="17sp"/>
 
                     <TextView
+                        android:id="@+id/app_status8"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Pending"
@@ -475,7 +491,12 @@
         </LinearLayout>
     </ScrollView>
 
-
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/application_list_display_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/to_add_appli_btn"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigator"
@@ -491,4 +512,4 @@
         android:layout_alignParentBottom="true"
         app:menu="@menu/bottom_nav_menu"/>
 
-    </RelativeLayout>
+</RelativeLayout>
