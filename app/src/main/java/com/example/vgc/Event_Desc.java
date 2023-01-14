@@ -2,6 +2,7 @@ package com.example.vgc;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -57,6 +58,7 @@ public class Event_Desc extends AppCompatActivity {
         venue.setText(event_venue);
         time.setText(event_start+" "+"-"+" "+event_end);
         contact.setText(event_contact);
+        
 
 
     }

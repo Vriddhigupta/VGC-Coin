@@ -44,4 +44,5 @@ dependencies {
     implementation 'androidx.viewpager2:viewpager2:1.0.0'
     implementation 'com.makeramen:roundedimageview:2.3.0'
     implementation 'com.squareup.picasso:picasso:2.8'
+    implementation 'com.koushikdutta.ion:ion:2.2.0'
 }

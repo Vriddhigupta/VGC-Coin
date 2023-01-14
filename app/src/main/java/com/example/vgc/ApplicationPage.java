@@ -80,9 +80,13 @@ public class ApplicationPage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ApplicationPage.this, AddApplication.class);
+                intent.putExtra("cookie", jsessionid);
                 startActivity(intent);
             }
         });
+
+
+
 
 
         bottomNavigationView = findViewById(R.id.bottom_navigator);
@@ -141,7 +145,7 @@ public class ApplicationPage extends AppCompatActivity {
                     System.out.println(eventResponse);
 
 
-                    AppResponse event = eventResponse.get(0);
+                    AppResponse event = eventResponse.get(eventResponse.size()-1);
 
                     view4 = findViewById(R.id.view4);
                     app_title4 = findViewById(R.id.app_title4);
@@ -175,7 +179,7 @@ public class ApplicationPage extends AppCompatActivity {
                         }
                     });
 
-                    AppResponse event1 = eventResponse.get(1);
+                    AppResponse event1 = eventResponse.get(eventResponse.size()-2);
 
                     view5 = findViewById(R.id.view5);
                     app_title5 = findViewById(R.id.app_title5);
@@ -209,39 +213,39 @@ public class ApplicationPage extends AppCompatActivity {
                         }
                     });
 
-//                    AppResponse event2 = eventResponse.get(2);
-//
-//                    view7 = findViewById(R.id.view7);
-//                    app_title7 = findViewById(R.id.app_title7);
-//                    app_date7 = findViewById(R.id.app_date7);
-//                    app_category7 = findViewById(R.id.app_category7);
-//                    app_status7 = findViewById(R.id.app_status7);
-//
-//                    app_title7.setText(event2.getStudentApplicationName());
-//                    app_date7.setText(event2.getStudentApplicationDate());
-//                    app_category7.setText(event2.getStudentApplicationCategory());
-//                    app_status7.setText(event2.getStudentApplicationStatus());
-//
-//
-//
-//                    view7.setOnClickListener(new View.OnClickListener() {
-//                        @Override
-//                        public void onClick(View view) {
-//                            Bundle bundle = new Bundle();
-//                            bundle.putString("app_name",event2.getStudentApplicationName());
-//                            bundle.putString("app_date",event2.getStudentApplicationDate());
-//                            bundle.putString("app_desc",event2.getStudentApplicationDescription());
-//                            bundle.putString("app_cat",event2.getStudentApplicationCategory());
-//                            bundle.putString("appp_stat",event2.getStudentApplicationStatus());
-//                            bundle.putString("app_file",event2.getStudentApplicationFile());
-//                            bundle.putString("app_coins",event2.getStudentApplicationIssuedCoins());
-//                            bundle.putString("app_org",event2.getStudentApplicationOrganizer());
-//                            Intent info = new Intent(ApplicationPage.this, ApplicationViewPage.class);
-//                            info.putExtras(bundle);
-//                            startActivity(info);
-//                            finish();
-//                        }
-//                    });
+                    AppResponse event2 = eventResponse.get(eventResponse.size()-3);
+
+                    view7 = findViewById(R.id.view7);
+                    app_title7 = findViewById(R.id.app_title7);
+                    app_date7 = findViewById(R.id.app_date7);
+                    app_category7 = findViewById(R.id.app_category7);
+                    app_status7 = findViewById(R.id.app_status7);
+
+                    app_title7.setText(event2.getStudentApplicationName());
+                    app_date7.setText(event2.getStudentApplicationDate());
+                    app_category7.setText(event2.getStudentApplicationCategory());
+                    app_status7.setText(event2.getStudentApplicationStatus());
+
+
+
+                    view7.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Bundle bundle = new Bundle();
+                            bundle.putString("app_name",event2.getStudentApplicationName());
+                            bundle.putString("app_date",event2.getStudentApplicationDate());
+                            bundle.putString("app_desc",event2.getStudentApplicationDescription());
+                            bundle.putString("app_cat",event2.getStudentApplicationCategory());
+                            bundle.putString("appp_stat",event2.getStudentApplicationStatus());
+                            bundle.putString("app_file",event2.getStudentApplicationFile());
+                            bundle.putString("app_coins",event2.getStudentApplicationIssuedCoins());
+                            bundle.putString("app_org",event2.getStudentApplicationOrganizer());
+                            Intent info = new Intent(ApplicationPage.this, ApplicationViewPage.class);
+                            info.putExtras(bundle);
+                            startActivity(info);
+                            finish();
+                        }
+                    });
 
 //                    AppResponse event3 = eventResponse.get(3);
 //

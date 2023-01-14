@@ -9,7 +9,44 @@
     android:orientation="vertical">
 
 
-        <androidx.viewpager2.widget.ViewPager2
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@drawable/toolbar_box"
+            android:gravity="center"
+            app:titleTextColor="@color/light_grey"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp">
+
+
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Toolbar Title"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+
+    <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewPagerImageSlider"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

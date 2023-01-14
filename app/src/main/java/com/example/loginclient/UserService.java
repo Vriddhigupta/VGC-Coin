@@ -35,4 +35,7 @@ public interface UserService {
     @POST("/student/stationerytransfer")
     Call<UserResponse> send_xerox(@Header("Cookie") String cookie, @Body BalanceResponse balanceResponse);
 
+    @POST("/student/setapplication")
+    Call<UserResponse> send_app(@Header("Cookie") String cookie, @Body AppRequest appRequest);
+
 }

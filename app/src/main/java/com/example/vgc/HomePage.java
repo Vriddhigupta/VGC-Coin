@@ -2,6 +2,7 @@ package com.example.vgc;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -89,6 +90,15 @@ public class HomePage extends AppCompatActivity {
             jsessionid = intent.getString("cookie");
 
     getEvents(jsessionid);
+
+        //Custom Toolbar
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        TextView toolbar_title = findViewById(R.id.toolbar_title);
+        // using toolbar as ActionBar
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(null);
+        toolbar_title.setText("Hi"+" "+name1);
+
         bottomNavigationView = findViewById(R.id.bottom_navigator);
         bottomNavigationView.setSelectedItemId(R.id.home_nav);
 
@@ -149,10 +159,11 @@ public class HomePage extends AppCompatActivity {
         });
         viewPager2 = findViewById(R.id.viewPagerImageSlider);
         List<SliderItems> sliderItems = new ArrayList<>();
-        sliderItems.add(new SliderItems(R.drawable.slider_image2));
-        sliderItems.add(new SliderItems(R.drawable.slider_image2));
         sliderItems.add(new SliderItems(R.drawable.slider_image1));
         sliderItems.add(new SliderItems(R.drawable.slider_image2));
+        sliderItems.add(new SliderItems(R.drawable.slider_image3));
+        sliderItems.add(new SliderItems(R.drawable.slider_image4));
+        sliderItems.add(new SliderItems(R.drawable.slider_image5));
 
         viewPager2.setAdapter(new SliderAdapter(sliderItems,viewPager2));
 
