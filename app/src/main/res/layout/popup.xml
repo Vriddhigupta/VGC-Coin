@@ -12,6 +12,7 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:hint="Enter the amount"
+
         android:textColorHint="@color/white"
         android:inputType="number"
         android:textColor="@color/white"

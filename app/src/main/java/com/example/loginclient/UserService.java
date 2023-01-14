@@ -29,4 +29,10 @@ public interface UserService {
     @GET("/student/balance")
     Call<Integer> get_balance(@Header("Cookie") String cookie);
 
+    @POST("/student/canteentransfer")
+    Call<UserResponse> send_canteen(@Header("Cookie") String cookie, @Body BalanceResponse balanceResponse);
+
+    @POST("/student/stationerytransfer")
+    Call<UserResponse> send_xerox(@Header("Cookie") String cookie, @Body BalanceResponse balanceResponse);
+
 }
